@@ -1,0 +1,111 @@
+/* Base reset & globals */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  line-height:1.6;
+  background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+  min-height:100vh;
+}
+
+/* NAVIGATION */
+nav{
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(0,0,0,.7);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 10%;z-index:1000;backdrop-filter:saturate(140%) blur(4px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+nav .logo{font-size:1.5rem;font-weight:700;color:#00e6e6;letter-spacing:.5px}
+nav ul{display:flex;list-style:none}
+nav ul li{margin:0 15px}
+nav ul li a{color:#fff;text-decoration:none;font-weight:500;transition:.3s}
+nav ul li a:hover{color:#00e6e6}
+
+/* HAMBURGER */
+.menu-toggle{display:none;flex-direction:column;cursor:pointer}
+.menu-toggle span{background:#fff;height:3px;width:25px;margin:4px 0;border-radius:3px;transition:.3s}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+/* HERO */
+header{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;background:rgba(0,0,0,.35);padding:0 10%;padding-top:80px;
+}
+header img{
+  width:180px;height:180px;border-radius:50%;border:5px solid #fff;
+  box-shadow:0 0 20px #00e6e6;animation:float 3s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+header h1{font-size:2.6rem;margin:20px 0 10px}
+header h1 span{color:#00e6e6}
+header p{font-size:1.15rem;color:#e3f6f6}
+.cta{margin-top:16px}
+.chip{
+  display:inline-block;margin:8px;padding:10px 18px;border-radius:30px;
+  border:2px solid #00e6e6;color:#00e6e6;text-decoration:none;transition:.3s
+}
+.chip:hover{background:#00e6e6;color:#000}
+
+/* SECTION */
+section{padding:80px 10%}
+h2{text-align:center;margin-bottom:40px;font-size:2rem;color:#00e6e6;text-shadow:0 0 10px rgba(0,230,230,.2)}
+
+/* SKILLS */
+.skills .skill{margin-bottom:22px}
+.skill-name{margin-bottom:6px;font-weight:500}
+.progress{background:#23343d;border-radius:20px;overflow:hidden;height:12px;box-shadow:inset 0 0 6px rgba(0,0,0,.4)}
+.progress-bar{
+  height:100%;width:0;background:linear-gradient(90deg,#00e6e6,#00ff99);
+  border-radius:20px;transition:width 2s
+}
+
+/* EDUCATION */
+.education ul{list-style:none}
+.education li{
+  background:rgba(255,255,255,.1);margin:10px 0;padding:15px;border-radius:10px;transition:.3s
+}
+.education li:hover{transform:translateX(10px);background:rgba(0,230,230,.3)}
+
+/* PROJECTS */
+.projects .cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px
+}
+.project-card{
+  background:linear-gradient(135deg,rgba(0,230,230,.15),rgba(0,255,153,.12));
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;padding:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25), inset 0 0 20px rgba(0,230,230,.06);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(0,0,0,.35), inset 0 0 24px rgba(0,230,230,.12)}
+.project-card h3{margin-bottom:8px}
+.project-card p{color:#e9f9f9;margin-bottom:14px}
+.btn{
+  background:linear-gradient(90deg,#00e6e6,#00ff99);color:#003233;
+  padding:10px 16px;border:none;border-radius:10px;text-decoration:none;font-weight:600;display:inline-block
+}
+.btn:hover{filter:brightness(.95)}
+
+/* CONTACT */
+.contact{text-align:center}
+.contact .chip{margin:10px}
+
+/* FOOTER */
+footer{text-align:center;padding:20px;background:rgba(0,0,0,.7);border-top:1px solid rgba(255,255,255,.08)}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+  nav ul{
+    position:absolute;top:65px;right:0;background:rgba(0,0,0,.92);
+    flex-direction:column;width:220px;display:none;padding:20px;border-radius:0 0 10px 10px
+  }
+  nav ul.active{display:flex}
+  nav ul li{margin:15px 0}
+  .menu-toggle{display:flex}
+  header h1{font-size:2rem}
+  header p{font-size:1rem}
+}
